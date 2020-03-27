@@ -1,4 +1,5 @@
 import React from 'react';
+import Thumbnail from './Thumbnail';
 import UserInputs from './UserInputs';
 import './App.css';
 
@@ -7,22 +8,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      memeImage: this.getMemeImage(),
+      memeImage: this.props.images[0].src,
       legendText: this.getLegendText(),
       memeTextTop: '',
       memeTextBottom: '',
     }
 
     this.updateMemeText = this.updateMemeText.bind(this);
-  }
-
-  getMemeImage() {
-    let images = [
-      "https://d26a57ydsghvgx.cloudfront.net/content/resources/Lifetime%20value.png",
-      "https://d26a57ydsghvgx.cloudfront.net/content/680x360_Blog_ClarifyIntentions.png",
-    ]
-
-    return images[Math.floor(Math.random() * images.length)];
+    this.updateImage = this.updateImage.bind(this);
   }
 
   getLegendText() {
@@ -50,7 +43,17 @@ class App extends React.Component {
     }
   }
 
+  updateImage(newImage) {
+    this.setState({
+      memeImage: newImage,
+    });
+  }
+
   render() {
+    let renderThumbnails = this.props.images.map((image) =>
+      <Thumbnail key={image.key} id={`thumbnail-${image.key}`} src={image.src} updateImage={this.updateImage} />
+    );
+
     return (
       <div className="App">
         <header className="App-header">
@@ -60,9 +63,14 @@ class App extends React.Component {
         <section className="grid">
           <div className="row">
             <div className="col image-col">
-              <h2 class="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
-              <img src={this.state.memeImage} className="meme-image" />
-              <h2 class="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
+              <div className="thumbnails">
+                {renderThumbnails}
+              </div>
+              <div className="meme">
+                <h2 class="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
+                <img src={this.state.memeImage} className="meme-image" />
+                <h2 class="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
+              </div>
             </div>
             <div className="col form-col">
               <UserInputs legendText={this.state.legendText} updateMemeText={this.updateMemeText} />

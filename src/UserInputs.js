@@ -6,16 +6,6 @@ import MemeTextInput from './MemeTextInput';
 class UserInputs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      titleVisible: false
-    };
-
-    this.toggleTitle = this.toggleTitle.bind(this);
-  }
-
-  toggleTitle() {
-    let titleVisible = this.state.titleVisible;
-    this.setState({titleVisible: !titleVisible});
   }
 
   render() {

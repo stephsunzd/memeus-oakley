@@ -27,9 +27,9 @@
 }
 
 .App-logo {
-  height: 20vmin;
+  height: 10vmin;
   pointer-events: none;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -112,6 +112,28 @@ h1,
   font-family:sharp sans,Arial,sans-serif;
   font-weight: 700;
   color: #03363d;
+}
+
+h1 {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.thumbnail {
+  width: 24%;
+  margin: 0.5%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.thumbnail:hover {
+  transition: opacity 0.5s ease;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.meme {
+  position: relative;
 }
 
 .meme-text {
