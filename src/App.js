@@ -44,6 +44,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <h1>Welcome to Memeus Oakley</h1>
           <img src="knife.png" className="App-logo" alt="Swiss army knife" />
         </header>
         <section className="grid">

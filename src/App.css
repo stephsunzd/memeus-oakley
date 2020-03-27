@@ -107,9 +107,14 @@ input:not([type=checkbox]):focus {
   outline: none;
 }
 
+h1,
 .meme-text {
   font-family:sharp sans,Arial,sans-serif;
   font-weight: 700;
+  color: #03363d;
+}
+
+.meme-text {
   font-size: 2rem;
   color: white;
   text-shadow: -1px -1px 0 #03363d, 1px -1px 0 #03363d, -1px 1px 0 #03363d, 1px 1px 0 #03363d;
