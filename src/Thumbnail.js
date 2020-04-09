@@ -10,14 +10,22 @@ class Thumbnail extends React.Component {
   }
 
   updateImage() {
-    let newImage = document.querySelector(`#${this.props.id}`).src;
+    this.props.updateImage(this.props);
+  }
 
-    this.props.updateImage(newImage);
+  renderClassNames() {
+    let classNames = ['thumbnail'];
+
+    if (this.props.isActive) {
+      classNames.push('selected');
+    }
+
+    return classNames.join(" ");
   }
 
   render() {
     return (
-      <img className="thumbnail" id={this.props.id} src={this.props.src} onClick={this.updateImage} />
+      <img className={this.renderClassNames()} id={this.props.id} src={this.props.src} onClick={this.updateImage} />
     );
   }
 }
@@ -25,5 +33,7 @@ class Thumbnail extends React.Component {
 export default Thumbnail;
 
 Thumbnail.propTypes = {
-  image: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  updateImage: PropTypes.func.isRequired,
 };

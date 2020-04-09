@@ -12,6 +12,7 @@ class App extends React.Component {
       legendText: this.getLegendText(),
       memeTextTop: '',
       memeTextBottom: '',
+      images: this.props.images,
     }
 
     this.updateMemeText = this.updateMemeText.bind(this);
@@ -44,16 +45,18 @@ class App extends React.Component {
   }
 
   updateImage(newImage) {
+    let images = this.props.images.map(image => {
+      image.isActive = image.key === newImage.id.replace('thumbnail-', '');
+      return image;
+    });
+
     this.setState({
-      memeImage: newImage,
+      memeImage: newImage.src,
+      images: images,
     });
   }
 
   render() {
-    let renderThumbnails = this.props.images.map((image) =>
-      <Thumbnail key={image.key} id={`thumbnail-${image.key}`} src={image.src} updateImage={this.updateImage} />
-    );
-
     return (
       <div className="App">
         <header className="App-header">
@@ -64,12 +67,14 @@ class App extends React.Component {
           <div className="row">
             <div className="col image-col">
               <div className="thumbnails">
-                {renderThumbnails}
+                {this.state.images.map(image =>
+                  <Thumbnail key={image.key} id={`thumbnail-${image.key}`} src={image.src} updateImage={this.updateImage} isActive={image.isActive} />
+                )}
               </div>
               <div className="meme">
-                <h2 class="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
+                <h2 className="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
                 <img src={this.state.memeImage} className="meme-image" />
-                <h2 class="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
+                // <h2 className="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
               </div>
             </div>
             <div className="col form-col">

@@ -126,17 +126,31 @@ h1 {
   margin: 0.25rem 0;
 }
 
+.thumbnails {
+  height: 160px;
+  overflow-y: scroll;
+  margin-bottom: 6px;
+  padding: 6px;
+  background: #f8f8f8;
+  box-sizing: border-box;
+}
+
 .thumbnail {
   width: 24%;
   margin: 0.5%;
   position: relative;
   box-sizing: border-box;
+  border: 3px solid #f8f8f8;
 }
 
 .thumbnail:hover {
   transition: opacity 0.5s ease;
   opacity: 0.5;
   cursor: pointer;
+}
+
+.thumbnail.selected {
+  border: 3px solid #03363d;
 }
 
 .meme {

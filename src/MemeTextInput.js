@@ -18,7 +18,7 @@ class MemeTextInput extends React.Component {
   render() {
     return (
       <div>
-        <label for={this.props.name}>Enter text for the {this.props.position}:</label>
+        <label htmlFor={this.props.name}>Enter text for the {this.props.position}:</label>
         <input name={this.props.name} type="text" onChange={this.updateMemeText} />
       </div>
     );
