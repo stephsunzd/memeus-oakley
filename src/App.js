@@ -74,7 +74,7 @@ class App extends React.Component {
               <div className="meme">
                 <h2 className="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
                 <img src={this.state.memeImage} className="meme-image" />
-                // <h2 className="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
+                <h2 className="meme-text meme-text-bottom js-meme-text-bottom">{this.state.memeTextBottom}</h2>
               </div>
             </div>
             <div className="col form-col">
