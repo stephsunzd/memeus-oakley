@@ -23,19 +23,7 @@
 .App {
   text-align: center;
   font-size: 14px;
-  font-family: proxima nova,Arial,sans-serif;
-}
-
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-  margin: 1.5rem 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: proxima nova, Arial, sans-serif;
 }
 
 .App-header {
@@ -50,15 +38,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .grid {
@@ -115,6 +94,8 @@ input:not([type=checkbox]):focus {
 }
 
 h1,
+h2,
+h3,
 .meme-text {
   font-family:sharp sans,Arial,sans-serif;
   font-weight: 700;
@@ -127,7 +108,7 @@ h1 {
 }
 
 .thumbnails {
-  height: 160px;
+  height: 260px;
   overflow-y: scroll;
   margin-bottom: 6px;
   padding: 6px;

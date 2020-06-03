@@ -61,16 +61,10 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Welcome to Memeus Oakley</h1>
-          <img src="knife.png" className="App-logo" alt="Swiss army knife" />
         </header>
         <section className="grid">
           <div className="row">
             <div className="col image-col">
-              <div className="thumbnails">
-                {this.state.images.map(image =>
-                  <Thumbnail key={image.key} id={`thumbnail-${image.key}`} src={image.src} updateImage={this.updateImage} isActive={image.isActive} />
-                )}
-              </div>
               <div className="meme">
                 <h2 className="meme-text meme-text-top js-meme-text-top">{this.state.memeTextTop}</h2>
                 <img src={this.state.memeImage} className="meme-image" />
@@ -78,7 +72,14 @@ class App extends React.Component {
               </div>
             </div>
             <div className="col form-col">
+              <h3>Enter your caption</h3>
               <UserInputs legendText={this.state.legendText} updateMemeText={this.updateMemeText} />
+              <h3>Select your image</h3>
+              <div className="thumbnails">
+                {this.state.images.map(image =>
+                  <Thumbnail key={image.key} id={`thumbnail-${image.key}`} src={image.src} updateImage={this.updateImage} isActive={image.isActive} />
+                )}
+              </div>
             </div>
           </div>
         </section>
